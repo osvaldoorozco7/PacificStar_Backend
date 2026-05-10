@@ -1,0 +1,6 @@
+@PacificStarBackend_HostAddress = http://localhost:5190
+
+GET {{PacificStarBackend_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
