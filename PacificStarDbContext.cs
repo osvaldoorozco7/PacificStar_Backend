@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using PacificStarBackend.Models;
 
 namespace PacificStarBackend;
 
@@ -25,7 +26,7 @@ public partial class PacificStarDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Bitacora>(entity =>
+        modelBuilder.Entity<Bitacora>(static entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__bitacora__3213E83F7ABCC4B0");
 

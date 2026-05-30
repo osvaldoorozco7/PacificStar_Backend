@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PacificStarBackend.Models;
-namespace PacificStarBackend.Repository
+namespace PacificStarBackend.Data
 {
     public class PacificStarDbContext : DbContext
     {

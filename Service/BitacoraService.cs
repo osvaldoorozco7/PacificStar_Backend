@@ -1,4 +1,4 @@
-﻿using PacificStarBackend.Repository;
+﻿using PacificStarBackend.Service.Interfaces;
 
 namespace PacificStarBackend.Service
 {

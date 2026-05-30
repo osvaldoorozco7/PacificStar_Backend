@@ -1,4 +1,4 @@
-﻿namespace PacificStarBackend.Repository
+﻿namespace PacificStarBackend.Service.Interfaces
 {
     public interface IBitacoraService
     {
