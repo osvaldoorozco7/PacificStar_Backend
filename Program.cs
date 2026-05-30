@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+using PacificStarBackend;
 using PacificStarBackend.Repository;
 using PacificStarBackend.Service;
 
@@ -14,6 +16,9 @@ builder.Services.AddOpenApi();
     options.UseSqlServer(builder.Configuration.GetConnectionString("")));*/
 
 builder.Services.AddScoped<BitacoraService>();
+
+builder.Services.AddDbContext<PacificStarDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
 
