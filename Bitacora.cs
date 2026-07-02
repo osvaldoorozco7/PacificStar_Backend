@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PacificStarBackend.Models;
+using System;
 using System.Collections.Generic;
 
 namespace PacificStarBackend;
@@ -19,5 +20,5 @@ public partial class Bitacora
 
     public decimal? NivelCombustible { get; set; }
 
-    public virtual Unidad? NumeroUnidadNavigation { get; set; }
+    public virtual Unidad? Unidad { get; set; }
 }
