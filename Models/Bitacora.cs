@@ -21,6 +21,8 @@ namespace PacificStarBackend.Models
         public decimal TempSegundaRevision { get; set; }
 
         public decimal TempFinal { get; set; }
+        public DateTime FechaCreacion { get; set; }
+        public DateTime? FechaActualizacion { get; set; }
 
         public Unidad Unidad { get; set; } = null!;
     }

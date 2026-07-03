@@ -18,6 +18,9 @@ builder.Services.AddDbContext<PacificStarDbContext>(options =>
 builder.Services.AddScoped<IBitacoraRepository, BitacoraRepository>();
 builder.Services.AddScoped<IBitacoraService, BitacoraService>();
 
+builder.Services.AddDbContext<PacificStarDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())

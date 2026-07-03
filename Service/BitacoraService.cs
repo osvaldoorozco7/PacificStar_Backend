@@ -37,8 +37,8 @@ namespace PacificStarBackend.Service
             existente.Fecha = bitacora.Fecha;
             existente.NivelCombustible = bitacora.NivelCombustible;
             existente.HoraEncendido = bitacora.HoraEncendido;
-            existente.TemperaturaInicial = bitacora.TemperaturaInicial;
-            existente.TemperaturaFinal = bitacora.TemperaturaFinal;
+            existente.TempInicial = bitacora.TempInicial;
+            existente.TempFinal = bitacora.TempFinal;
 
             await _repository.UpdateAsync(existente);
 
