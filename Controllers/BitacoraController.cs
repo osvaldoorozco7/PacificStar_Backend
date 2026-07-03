@@ -1,31 +1,65 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using PacificStarBackend.Models;
 using PacificStarBackend.Service;
-using PacificStarBackend.Service.Interfaces;
 
 namespace PacificStarBackend.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
     public class BitacoraController : ControllerBase
     {
-        private readonly IBitacoraService _bitacoraService;
+        private readonly IBitacoraService _service;
 
-        public BitacoraController(IBitacoraService bitacoraService)
+        public BitacoraController(IBitacoraService service)
         {
-            _bitacoraService = bitacoraService;
+            _service = service;
         }
 
-
-        [HttpPost("addBitacora")]
-        public IActionResult Add(Bitacora bitacora)
+        [HttpGet]
+        public async Task<IActionResult> Get()
         {
+            return Ok(await _service.ObtenerTodas());
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> Get(int id)
+        {
+            var bitacora = await _service.ObtenerPorId(id);
+
+            if (bitacora == null)
+                return NotFound();
+
             return Ok(bitacora);
         }
 
-        [HttpDelete("deleteBitacora/{id}")]
-        public IActionResult Delete(int id)
+        [HttpPost]
+        public async Task<IActionResult> Post(Bitacora bitacora)
         {
-            return Ok();    
+            var nueva = await _service.Crear(bitacora);
+
+            return CreatedAtAction(nameof(Get), new { id = nueva.Id }, nueva);
         }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Put(int id, Bitacora bitacora)
+        {
+            var actualizado = await _service.Actualizar(id, bitacora);
+
+            if (!actualizado)
+                return NotFound();
+
+            return NoContent();
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var eliminado = await _service.Eliminar(id);
+
+            if (!eliminado)
+                return NotFound();
+
+            return NoContent();
+        }
+    }
 }
