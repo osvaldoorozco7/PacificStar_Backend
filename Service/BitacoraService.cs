@@ -1,5 +1,6 @@
 ﻿using PacificStarBackend.Models;
 using PacificStarBackend.Repository;
+using PacificStarBackend.Repository.Interfaces;
 
 namespace PacificStarBackend.Service
 {

@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using PacificStarBackend.Data;
 using PacificStarBackend.Repository;
+using PacificStarBackend.Repository.Interfaces;
 using PacificStarBackend.Service;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,9 +18,8 @@ builder.Services.AddDbContext<PacificStarDbContext>(options =>
 // DI
 builder.Services.AddScoped<IBitacoraRepository, BitacoraRepository>();
 builder.Services.AddScoped<IBitacoraService, BitacoraService>();
-
-builder.Services.AddDbContext<PacificStarDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddScoped<IUnidadRepository, UnidadRepository>();
+builder.Services.AddScoped<IUnidadService, UnidadService>();
 
 var app = builder.Build();
 
