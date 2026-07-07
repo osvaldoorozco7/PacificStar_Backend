@@ -12,7 +12,7 @@ namespace PacificStarBackend.Models
         public int NumeroUnidad { get; set; }
 
         [Column("nivel_combustible")]
-        public int NivelCombustible { get; set; }
+        public decimal NivelCombustible { get; set; }
 
         [Column("hora_encendido")]
         public DateTime HoraEncendido { get; set; }
@@ -22,7 +22,6 @@ namespace PacificStarBackend.Models
 
         [Column("temperatura_final")]
         public decimal TempFinal { get; set; }
-
         public Unidad Unidad { get; set; } = null!;
     }
 }

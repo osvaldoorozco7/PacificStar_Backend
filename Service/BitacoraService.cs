@@ -1,4 +1,5 @@
-﻿using PacificStarBackend.Models;
+﻿using PacificStarBackend.DTO.Responses;
+using PacificStarBackend.Models;
 using PacificStarBackend.Repository;
 using PacificStarBackend.Repository.Interfaces;
 
@@ -13,9 +14,20 @@ namespace PacificStarBackend.Service
             _repository = repository;
         }
 
-        public async Task<List<Bitacora>> ObtenerTodas()
+        public async Task<List<BitacoraResponse>> ObtenerTodas()
         {
-            return await _repository.GetAllAsync();
+            var bitacoras = await _repository.GetAllAsync();
+
+            return bitacoras.Select(b => new BitacoraResponse
+            {
+                Id = b.Id,
+                Fecha = b.Fecha,
+                NumeroUnidad = b.NumeroUnidad,
+                NivelCombustible = b.NivelCombustible,
+                HoraEncendido = b.HoraEncendido,
+                TempInicial = b.TempInicial,
+                TempFinal = b.TempFinal
+            }).ToList();
         }
 
         public async Task<Bitacora?> ObtenerPorId(int id)
@@ -25,6 +37,7 @@ namespace PacificStarBackend.Service
 
         public async Task<Bitacora> Crear(Bitacora bitacora)
         {
+            bitacora.Fecha = DateTime.Now;
             return await _repository.AddAsync(bitacora);
         }
 
