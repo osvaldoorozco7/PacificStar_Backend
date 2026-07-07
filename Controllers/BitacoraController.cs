@@ -32,7 +32,7 @@ namespace PacificStarBackend.Controllers
             return Ok(bitacora);
         }
 
-        [HttpPost]
+        [HttpPost("{saveBitacora}")]
         public async Task<IActionResult> Post(Bitacora bitacora)
         {
             var nueva = await _service.Crear(bitacora);

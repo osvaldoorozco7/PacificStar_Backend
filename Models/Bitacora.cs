@@ -1,4 +1,4 @@
-﻿using PacificStarBackend.Enums;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PacificStarBackend.Models
 {
@@ -8,21 +8,20 @@ namespace PacificStarBackend.Models
 
         public DateTime Fecha { get; set; }
 
+        [Column("numero_unidad")]
         public int NumeroUnidad { get; set; }
 
-        public NivelCombustible NivelCombustible { get; set; }
+        [Column("nivel_combustible")]
+        public int NivelCombustible { get; set; }
 
+        [Column("hora_encendido")]
         public DateTime HoraEncendido { get; set; }
 
+        [Column("temperatura_inicial")]
         public decimal TempInicial { get; set; }
 
-        public decimal TempPrimeraRevision { get; set; }
-
-        public decimal TempSegundaRevision { get; set; }
-
+        [Column("temperatura_final")]
         public decimal TempFinal { get; set; }
-        public DateTime FechaCreacion { get; set; }
-        public DateTime? FechaActualizacion { get; set; }
 
         public Unidad Unidad { get; set; } = null!;
     }

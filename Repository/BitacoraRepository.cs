@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PacificStarBackend.Data;
 using PacificStarBackend.Models;
+using PacificStarBackend.Repository.Interfaces;
 
 namespace PacificStarBackend.Repository
 {
