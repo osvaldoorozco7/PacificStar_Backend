@@ -1,10 +1,11 @@
-﻿using PacificStarBackend.Models;
+﻿using PacificStarBackend.DTO.Responses;
+using PacificStarBackend.Models;
 
 namespace PacificStarBackend.Service
 {
     public interface IBitacoraService
     {
-        Task<List<Bitacora>> ObtenerTodas();
+        Task<List<BitacoraResponse>> ObtenerTodas();
 
         Task<Bitacora?> ObtenerPorId(int id);
 

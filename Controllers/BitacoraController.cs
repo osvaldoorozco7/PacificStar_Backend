@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PacificStarBackend.DTO.Request;
 using PacificStarBackend.Models;
 using PacificStarBackend.Service;
 
@@ -33,11 +34,21 @@ namespace PacificStarBackend.Controllers
         }
 
         [HttpPost("{saveBitacora}")]
-        public async Task<IActionResult> Post(Bitacora bitacora)
+        public async Task<IActionResult> Post(CrearBitacoraRequest BitacoraDTO)
         {
-            var nueva = await _service.Crear(bitacora);
+            var bitacora = new Bitacora
+            {
+                NumeroUnidad = BitacoraDTO.NumeroUnidad,
+                NivelCombustible = BitacoraDTO.NivelCombustible,
+                HoraEncendido = BitacoraDTO.HoraEncendido,
+                TempInicial = BitacoraDTO.TempInicial,
+                TempFinal = BitacoraDTO.TempFinal,
+                Fecha = DateTime.Now
+            };
 
-            return CreatedAtAction(nameof(Get), new { id = nueva.Id }, nueva);
+            var resultado = await _service.Crear(bitacora);
+
+            return Ok(resultado);
         }
 
         [HttpPut("{id}")]
