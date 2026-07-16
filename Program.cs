@@ -6,6 +6,7 @@ using PacificStarBackend.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 
@@ -15,7 +16,19 @@ builder.Services.AddDbContext<PacificStarDbContext>(options =>
         builder.Configuration.GetConnectionString("PacificStarDB")
     ));
 
-// DI
+// CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("ReactPolicy", policy =>
+    {
+        policy
+            .WithOrigins("http://localhost:5173")
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
+
+// Dependency Injection
 builder.Services.AddScoped<IBitacoraRepository, BitacoraRepository>();
 builder.Services.AddScoped<IBitacoraService, BitacoraService>();
 builder.Services.AddScoped<IUnidadRepository, UnidadRepository>();
@@ -29,7 +42,12 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+// Habilita CORS
+app.UseCors("ReactPolicy");
+
 app.UseAuthorization();
+
 app.MapControllers();
 
 app.Run();
