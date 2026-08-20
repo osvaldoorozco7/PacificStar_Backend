@@ -12,8 +12,8 @@ using PacificStarBackend.Data;
 namespace PacificStarBackend.Migrations
 {
     [DbContext(typeof(PacificStarDbContext))]
-    [Migration("20260817170707_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20260820145350_RemoveIdentityFromUnidad")]
+    partial class RemoveIdentityFromUnidad
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -69,11 +69,8 @@ namespace PacificStarBackend.Migrations
             modelBuilder.Entity("PacificStarBackend.Models.Unidad", b =>
                 {
                     b.Property<int>("NumeroUnidad")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasColumnName("numero_unidad");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("NumeroUnidad"));
 
                     b.Property<bool>("Active")
                         .HasColumnType("bit")

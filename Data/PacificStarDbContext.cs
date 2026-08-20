@@ -23,7 +23,17 @@ namespace PacificStarBackend.Data
                 entity.ToTable("unidades");
 
                 entity.Property(u => u.NumeroUnidad)
-                    .HasColumnName("numero_unidad");
+                    .HasColumnName("numero_unidad")
+                    .ValueGeneratedNever();
+
+                entity.Property(u => u.HorasMotor)
+                    .HasColumnName("horas_motor");
+
+                entity.Property(u => u.Modelo)
+                    .HasColumnName("modelo");
+
+                entity.Property(u => u.Active)
+                    .HasColumnName("active");
             });
 
 

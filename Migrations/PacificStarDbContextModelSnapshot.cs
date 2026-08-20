@@ -66,11 +66,8 @@ namespace PacificStarBackend.Migrations
             modelBuilder.Entity("PacificStarBackend.Models.Unidad", b =>
                 {
                     b.Property<int>("NumeroUnidad")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasColumnName("numero_unidad");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("NumeroUnidad"));
 
                     b.Property<bool>("Active")
                         .HasColumnType("bit")

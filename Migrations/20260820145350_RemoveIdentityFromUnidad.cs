@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace PacificStarBackend.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class RemoveIdentityFromUnidad : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -15,8 +15,7 @@ namespace PacificStarBackend.Migrations
                 name: "unidades",
                 columns: table => new
                 {
-                    numero_unidad = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    numero_unidad = table.Column<int>(type: "int", nullable: false),
                     horas_motor = table.Column<int>(type: "int", nullable: true),
                     modelo = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     active = table.Column<bool>(type: "bit", nullable: false)
