@@ -12,7 +12,7 @@ public partial class Unidad
     [Column("modelo")]
     public string? Modelo { get; set; }
     [Column("active")]
-    public Boolean Active { get; set; }
+    public bool Active { get; set; }
 
     public virtual ICollection<Bitacora> Bitacoras { get; set; } = new List<Bitacora>();
 }
