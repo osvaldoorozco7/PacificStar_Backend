@@ -43,7 +43,7 @@ namespace PacificStarBackend.Controllers
                 HoraEncendido = BitacoraDTO.HoraEncendido,
                 TempInicial = BitacoraDTO.TempInicial,
                 TempFinal = BitacoraDTO.TempFinal,
-                Fecha = DateTime.Now
+                Fecha = BitacoraDTO.Fecha
             };
 
             var resultado = await _service.Crear(bitacora);
