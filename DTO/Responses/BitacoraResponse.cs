@@ -4,6 +4,8 @@
     {
         public int Id { get; set; }
 
+        public int HorasMotor { get; set; }
+
         public DateTime Fecha { get; set; }
 
         public int NumeroUnidad { get; set; }

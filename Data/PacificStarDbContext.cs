@@ -62,6 +62,8 @@ namespace PacificStarBackend.Data
                 entity.Property(b => b.TempFinal)
                     .HasPrecision(5, 2);
 
+                entity.Property(b => b.HorasMotor)
+                .HasColumnName("horas_motor");
 
                 entity.Property(b => b.NivelCombustible)
                     .HasPrecision(5, 2);

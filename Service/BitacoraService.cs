@@ -23,6 +23,7 @@ namespace PacificStarBackend.Service
                 Id = b.Id,
                 Fecha = b.Fecha,
                 NumeroUnidad = b.NumeroUnidad,
+                HorasMotor = b.HorasMotor,
                 NivelCombustible = b.NivelCombustible,
                 HoraEncendido = b.HoraEncendido,
                 TempInicial = b.TempInicial,
