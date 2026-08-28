@@ -39,6 +39,7 @@ namespace PacificStarBackend.Controllers
             var bitacora = new Bitacora
             {
                 NumeroUnidad = BitacoraDTO.NumeroUnidad,
+                HorasMotor = BitacoraDTO.HorasMotor,
                 NivelCombustible = BitacoraDTO.NivelCombustible,
                 HoraEncendido = BitacoraDTO.HoraEncendido,
                 TempInicial = BitacoraDTO.TempInicial,

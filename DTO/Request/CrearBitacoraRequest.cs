@@ -6,6 +6,8 @@ namespace PacificStarBackend.DTO.Request
     {
         [Required]
         public int NumeroUnidad { get; set; }
+        [Required]
+        public int HorasMotor { get; set; }
         public DateTime Fecha {  get; set; }
         public decimal NivelCombustible { get; set; }
         public DateTime HoraEncendido { get; set; }

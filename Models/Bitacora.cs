@@ -10,6 +10,8 @@ namespace PacificStarBackend.Models
 
         [Column("numero_unidad")]
         public int NumeroUnidad { get; set; }
+        [Column("horas_motor")]
+        public  int HorasMotor { get; set; }
 
         [Column("nivel_combustible")]
         public decimal NivelCombustible { get; set; }
