@@ -1,5 +1,6 @@
 ﻿using PacificStarBackend;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace PacificStarBackend.Models;
 
@@ -14,5 +15,6 @@ public partial class Unidad
     [Column("active")]
     public bool Active { get; set; }
 
+    [JsonIgnore]
     public virtual ICollection<Bitacora> Bitacoras { get; set; } = new List<Bitacora>();
 }
