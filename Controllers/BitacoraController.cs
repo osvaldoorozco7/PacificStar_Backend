@@ -10,10 +10,12 @@ namespace PacificStarBackend.Controllers
     public class BitacoraController : ControllerBase
     {
         private readonly IBitacoraService _service;
+        private readonly IUnidadService _unidadService;
 
-        public BitacoraController(IBitacoraService service)
+        public BitacoraController(IBitacoraService service, IUnidadService unidadService)
         {
             _service = service;
+            _unidadService = unidadService;
         }
 
         [HttpGet]
@@ -46,6 +48,22 @@ namespace PacificStarBackend.Controllers
                 TempFinal = BitacoraDTO.TempFinal,
                 Fecha = BitacoraDTO.Fecha
             };
+
+            var unidad = new Unidad
+            {
+                NumeroUnidad = BitacoraDTO.NumeroUnidad,
+                HorasMotor = BitacoraDTO.HorasMotor
+            };
+
+            var updateUnidad = await _unidadService.Actualizar(
+                BitacoraDTO.NumeroUnidad,
+                unidad
+            );
+
+            if (!updateUnidad)
+            {
+                return NotFound($"No se encontró la unidad {BitacoraDTO.NumeroUnidad}");
+            }
 
             var resultado = await _service.Crear(bitacora);
 

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PacificStarBackend.Models;
 using PacificStarBackend.Service;
 
 namespace PacificStarBackend.Controllers
@@ -18,6 +19,13 @@ namespace PacificStarBackend.Controllers
         public async Task<IActionResult> Get()
         {
             return Ok(await _unidadService.ObtenerTodas());
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Put(int id, Unidad unidad)
+        {
+            var actualizado = await _unidadService.Actualizar(id, unidad);
+            return Ok(actualizado);
         }
     }
 }
