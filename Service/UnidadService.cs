@@ -25,7 +25,7 @@ namespace PacificStarBackend.Service
             existente.NumeroUnidad = unidad.NumeroUnidad;
             existente.HorasMotor = unidad.HorasMotor;
             existente.Modelo = unidad.Modelo;
-            existente.Active = unidad.Active;
+            existente.Active = unidad.Active = true;
 
             await _repository.ActualizarAsync(existente);
 
