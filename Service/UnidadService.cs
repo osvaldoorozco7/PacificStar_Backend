@@ -20,12 +20,15 @@ namespace PacificStarBackend.Service
         {
             var existente = await _repository.GetByIdAsync(id);
 
-            if (existente == null) return false;
+            if (existente == null)
+                return false;
 
-            existente.NumeroUnidad = unidad.NumeroUnidad;
             existente.HorasMotor = unidad.HorasMotor;
-            existente.Modelo = unidad.Modelo;
-            existente.Active = unidad.Active = true;
+
+            if (unidad.Modelo != null)
+                existente.Modelo = unidad.Modelo;
+
+            existente.Active = true;
 
             await _repository.ActualizarAsync(existente);
 
