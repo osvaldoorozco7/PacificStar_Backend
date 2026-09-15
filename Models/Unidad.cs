@@ -14,6 +14,8 @@ public partial class Unidad
     public string? Modelo { get; set; }
     [Column("active")]
     public bool Active { get; set; }
+    [Column("ultimo_servicio")]
+    public int UltimoServicio { get; set; }
 
     [JsonIgnore]
     public virtual ICollection<Bitacora> Bitacoras { get; set; } = new List<Bitacora>();
