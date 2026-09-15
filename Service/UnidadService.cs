@@ -29,6 +29,11 @@ namespace PacificStarBackend.Service
                 existente.Modelo = unidad.Modelo;
 
             existente.Active = true;
+            if (unidad.UltimoServicio > 0)
+            {
+                existente.UltimoServicio = unidad.UltimoServicio;
+            }
+            
 
             await _repository.ActualizarAsync(existente);
 
