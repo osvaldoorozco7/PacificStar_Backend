@@ -1,4 +1,5 @@
-﻿using PacificStarBackend.Models;
+﻿using PacificStarBackend.DTO;
+using PacificStarBackend.Models;
 
 namespace PacificStarBackend.Repository.Interfaces
 {
@@ -7,5 +8,6 @@ namespace PacificStarBackend.Repository.Interfaces
         Task<List<Unidad>> GetAllAsync();
         Task<Unidad> GetByIdAsync(int id);
         Task ActualizarAsync(Unidad unidad);
+        Task<bool> AgregarServicioAsync(ServicioMotor servicio);
     }
 }

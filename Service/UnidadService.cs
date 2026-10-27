@@ -1,4 +1,5 @@
-﻿using PacificStarBackend.Models;
+﻿using PacificStarBackend.DTO;
+using PacificStarBackend.Models;
 using PacificStarBackend.Repository.Interfaces;
 
 namespace PacificStarBackend.Service
@@ -38,6 +39,11 @@ namespace PacificStarBackend.Service
             await _repository.ActualizarAsync(existente);
 
             return true;
+        }
+        
+        public async Task<bool> AgregarServicio(ServicioMotor servicio)
+        {
+            return await _repository.AgregarServicioAsync(servicio);
         }
     }
 }

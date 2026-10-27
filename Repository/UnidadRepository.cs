@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PacificStarBackend.Data;
+using PacificStarBackend.DTO;
 using PacificStarBackend.Models;
 using PacificStarBackend.Repository.Interfaces;
 
@@ -29,8 +30,18 @@ namespace PacificStarBackend.Repository
         public async Task ActualizarAsync(Unidad unidad)
         {
             _context.Unidades.Update(unidad);
-
             await _context.SaveChangesAsync();
+        }
+
+        public async Task<bool> AgregarServicioAsync(ServicioMotor servicio)
+        {
+            var unidad = await _context.Unidades.FirstOrDefaultAsync(u => u.NumeroUnidad == servicio.NumeroUnidad);
+            if (unidad == null)
+                return false;
+            unidad.UltimoServicio = servicio.HorasServicio;
+            unidad.FechaUltimoServicio = servicio.FechaServicio;
+            await _context.SaveChangesAsync();
+            return true;
         }
 
     }

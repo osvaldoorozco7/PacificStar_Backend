@@ -15,7 +15,9 @@ public partial class Unidad
     [Column("active")]
     public bool Active { get; set; }
     [Column("ultimo_servicio")]
-    public int UltimoServicio { get; set; }
+    public int? UltimoServicio { get; set; }
+    [Column("fecha_servicio")]
+    public DateOnly? FechaUltimoServicio { get; set; }
 
     [JsonIgnore]
     public virtual ICollection<Bitacora> Bitacoras { get; set; } = new List<Bitacora>();

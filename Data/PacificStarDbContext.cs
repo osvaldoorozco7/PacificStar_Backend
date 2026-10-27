@@ -37,6 +37,9 @@ namespace PacificStarBackend.Data
 
                 entity.Property(u => u.UltimoServicio)
                     .HasColumnName("ultimo_servicio");
+
+                entity.Property(u => u.FechaUltimoServicio)
+                    .HasColumnName("fecha_servicio");
             });
 
 
